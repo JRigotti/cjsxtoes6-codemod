@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"5to6-codemod@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/5to6-codemod/-/5to6-codemod-1.7.1.tgz#61866c336f2c6ef5505eb9b7a12d825ef44aeb99"
+  dependencies:
+    jscodeshift "^0.3.28"
+    lodash "^4.17.4"
+    recast "^0.12.1"
+
 "@babel/code-frame@7.0.0-beta.51":
   version "7.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0-beta.51.tgz#bd71d9b192af978df915829d39d4094456439a0c"
@@ -3124,7 +3132,7 @@ jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
 
-jscodeshift@^0.3.2, jscodeshift@^0.3.25:
+jscodeshift@^0.3.2, jscodeshift@^0.3.25, jscodeshift@^0.3.28:
   version "0.3.32"
   resolved "https://registry.yarnpkg.com/jscodeshift/-/jscodeshift-0.3.32.tgz#dece5eb602f16340d8d954c7f96ac907c502eabb"
   dependencies:
@@ -3983,7 +3991,7 @@ recast@^0.11.17:
     private "~0.1.5"
     source-map "~0.5.0"
 
-recast@^0.12.5:
+recast@^0.12.1, recast@^0.12.5:
   version "0.12.9"
   resolved "https://registry.yarnpkg.com/recast/-/recast-0.12.9.tgz#e8e52bdb9691af462ccbd7c15d5a5113647a15f1"
   dependencies:

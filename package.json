@@ -14,6 +14,7 @@
     "jscodeshift": "^0.5.1"
   },
   "dependencies": {
+    "5to6-codemod": "^1.7.1",
     "coffee-react-transform": "^5.0.0",
     "js-codemod": "^7.0.0",
     "react-codemod": "^4.0.0"
