@@ -1,6 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
+const coffeeTransform = require('coffee-react-transform');
+
 module.exports = (fileInfo, api, options) => {
     const newFilePath = path.format({
         ext: '.jsx',
@@ -8,7 +10,9 @@ module.exports = (fileInfo, api, options) => {
         name: path.basename(fileInfo.path, path.extname(fileInfo.path))
     });
 
-    const res = fs.writeFile(newFilePath, 'opa', 'utf8', (err) => {
+    let source = coffeeTransform(fileInfo.source);
+
+    const res = fs.writeFile(newFilePath, source, 'utf8', (err) => {
         if (err) {
             console.error(err);
         }
