@@ -25,7 +25,10 @@ module.exports = (fileInfo, api, options) => {
     }
     // convert from coffee to js
     try {
-        source = decaf(source).code;
+        source = decaf(source, {
+            loose: true,
+            disableBabelConstructorWorkaround: true
+        }).code;
     } catch (e) {
         throw new Error('Decaffeinate error: ', e.message);
     }
