@@ -18,13 +18,30 @@ module.exports = (fileInfo, api, options) => {
     let source = fileInfo.source;
 
     // convert from cjsx to coffee
-    source = coffeeTransform(fileInfo.source);
+    try {
+        source = coffeeTransform(fileInfo.source);
+    } catch (e) {
+        throw new Error('CJSX to Coffee Transform error: ', e.message);
+    }
     // convert from coffee to js
-    source = decaf(source).code;
+    try {
+        source = decaf(source).code;
+    } catch (e) {
+        throw new Error('Decaffeinate error: ', e.message);
+    }
     // use class properties
-    source = classes({ ...fileInfo, source }, api, options);
+    try {
+        let nSource = classes({ ...fileInfo, source }, api, options);
+        source = nSource || source;
+    } catch (e) {
+        throw new Error('React classes error: ', e.message);
+    }
     // add jsx tags
-    source = toJSX({ ...fileInfo, source }, api, options);
+    try {
+        source = toJSX({ ...fileInfo, source }, api, options);
+    } catch (e) {
+        throw new Error('Convert to JSX error: ', e.message);
+    }
     // exports to import style
     source = exports({ ...fileInfo, source }, api, options);
     // use import instead of require
